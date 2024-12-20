@@ -7,23 +7,70 @@ import Preprocessor
 
 st.logo("static/Logo.jpg")
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1,4])
 
 # with col1:
     # st.image('../')
 with col2:
     st.markdown("# Visualizations:")
 
-pollutant = st.multiselect("Select the Pollutant(s):", Preprocessor.pollutant_cols)
+st.subheader("Correlation Matrix of Sensors and Pollutants")
+col3, col4 = st.columns(2)
+   
+with col4:
+    st.dataframe(Preprocessor.correlation_matrix(), width=1000)
+     
+with col3:
+    Preprocessor.corr()
 
+tab1,tab2,tab3 = st.tabs(["**Trends**",'**Bar Chart**','**Histograms**'])
 
-if pollutant:
-    st.subheader("Trend")
-    st.metric(label = 'Bullshit', value = f"{int(Preprocessor.df[pollutant].mean().iloc[0])}")
+with tab1:
+    st.subheader("Line Plots")
+    pollutant_for_line = Preprocessor.multiselect("Select Pollutant(s) for line plot:", Preprocessor.pollutant_cols)
 
-else:
-    st.write('No Pollutant is selected for Visualization')
+    if pollutant_for_line:
 
-tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
-tab1.write("this is tab 1")
-tab2.write("this is tab 2")
+        col5, col6 = st.columns(2)
+
+        with col5:
+            st.subheader("Hourly Average Pollution over a Year")
+            Preprocessor.hourly(pollutant_for_line)
+
+        with col6:
+            st.subheader("Daily Average Pollution over a Year")
+            Preprocessor.daily(pollutant_for_line)
+
+        with col5:
+            st.subheader("Monthly Average Pollution over a Year")
+            Preprocessor.monthly(pollutant_for_line)
+        
+
+    else:
+        st.write('No Pollutant is selected for Visualization')
+
+with tab2:
+
+    st.subheader("Bar Charts")
+    pollutant_for_bar = Preprocessor.multiselect("Select Pollutant(s) for Bar chart:", Preprocessor.pollutant_cols)
+
+    col7, col8 = st.columns(2)
+
+    if pollutant_for_bar:
+
+        with col7:
+            Preprocessor.bar(pollutant_for_bar)
+
+        with col8:
+            Preprocessor.avg_bar(pollutant_for_bar)
+
+    else:
+        st.write("No Pollutants selected for Visualization")
+
+with tab3:
+    
+    st.subheader("Histograms")
+    pollutant = st.selectbox("Select the pollutant:",Preprocessor.pollutant_cols)
+
+    if pollutant:
+        Preprocessor.histogram(pollutant)
