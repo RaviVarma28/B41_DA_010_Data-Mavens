@@ -7,8 +7,8 @@ import plotly.express as px
 # Load the dataset
 df = pd.read_csv('data/CleanedAirQuality.csv')
 
-# df['Date'] = pd.to_datetime(df['Date']).dt.date
-# df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.time
+df['Date'] = pd.to_datetime(df['Date']).dt.date
+df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.time
 
 
 sensor_cols = ['PT08.S1(CO)', 'PT08.S3(NOx)',  'PT08.S4(NO2)', 'PT08.S2(NMHC)']
@@ -94,6 +94,10 @@ def multiselect(title, options_list):
             selected_options = options_list
 
     return selected_options
+
+def selectbox(title,pollutant):
+    selected = st.selectbox(title,pollutant,key=title+'_Selected')
+    return selected
 
 def hourly(pollutants):
     
