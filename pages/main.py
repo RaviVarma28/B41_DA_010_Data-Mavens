@@ -5,8 +5,8 @@ sys.path.append('scripts')
 import Preprocessor
 import numpy as np
 
-st.logo("static/Logo.jpg")
 
+st.logo("static/Logo.jpg")
 
 
 col1, col2= st.columns([1,8])
@@ -26,7 +26,8 @@ st.subheader("Data Summary:")
 st.write(Preprocessor.df.head())
 
 # st.subheader("Highest recorded Pollution level")
-pollutant = st.selectbox("**Select the Pollutant**",Preprocessor.pollutant_cols)
+pollutant = Preprocessor.selectbox("**Select the Pollutant**",Preprocessor.pollutant_cols)
+
 if pollutant:
     peak = Preprocessor.df[pollutant].max()
     least = np.sort(Preprocessor.df[pollutant].unique())[1]
@@ -36,4 +37,3 @@ if pollutant:
     st.metric(label = 'Lowest recorded Pollution level',value=f'{least} mg/m³ at {least_date}')
     
 
- 

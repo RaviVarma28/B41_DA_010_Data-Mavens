@@ -7,12 +7,7 @@ import Preprocessor
 
 st.logo("static/Logo.jpg")
 
-col1, col2 = st.columns([1,4])
-
-# with col1:
-    # st.image('../')
-with col2:
-    st.markdown("# Visualizations:")
+st.title(":material/data_exploration: Visualization Dashboard")
 
 st.subheader("Correlation Matrix of Sensors and Pollutants")
 col3, col4 = st.columns(2)
@@ -70,7 +65,7 @@ with tab2:
 with tab3:
     
     st.subheader("Histograms")
-    pollutant = st.selectbox("Select the pollutant:",Preprocessor.pollutant_cols)
+    pollutant = Preprocessor.selectbox("Pollutant:",Preprocessor.pollutant_cols)
 
     if pollutant:
         Preprocessor.histogram(pollutant)

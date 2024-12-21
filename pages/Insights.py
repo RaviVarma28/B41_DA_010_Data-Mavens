@@ -5,11 +5,8 @@ import Preprocessor
 
 st.logo("static/Logo.jpg")
 
-col1, col2 = st.columns([1,4])
 
-
-with col2:
-    st.markdown('# Insights Dashboard')
+st.title(':material/stacked_bar_chart: Insights Dashboard')
 
 
 tab1, tab2, tab3, tab4 = st.tabs(Preprocessor.pollutant_cols)

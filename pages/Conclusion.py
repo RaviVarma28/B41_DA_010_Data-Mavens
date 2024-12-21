@@ -1,7 +1,8 @@
 import streamlit as st
 
+st.logo("static/Logo.jpg")
 
-st.markdown('# Conclusion')
+st.title(':material/check: Conclusion')
 st.markdown("""
     1. **Peak Pollution Periods:**
         - **Worst Pollution Days:** 
