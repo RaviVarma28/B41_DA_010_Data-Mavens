@@ -6,12 +6,6 @@ import matplotlib.dates as mdates
 
 # Load the dataset
 data = pd.read_csv('CleanedAirQuality.csv', parse_dates=['Date'], index_col='Date')
-# df = pd.read_csv('data/CleanedAirQuality.csv')
-
-
-sensor_cols = ['PT08.S1(CO)', 'PT08.S3(NOx)',  'PT08.S4(NO2)', 'PT08.S2(NMHC)']
-pollutant_cols = ['CO(GT)', 'NOx(GT)', 'NO2(GT)', 'NMHC(GT)']
-weather_cols = ['T', 'RH', 'AH']
 
 # Set up the page title and layout
 st.set_page_config(page_title="Insights Dashboard", layout="wide")
