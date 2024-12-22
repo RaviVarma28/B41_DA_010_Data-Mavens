@@ -46,24 +46,33 @@ Data Analysis using Python Libraries
 **AIR QUALITY INDEX(AQI)**: (LINK)
 
 ## **Directory Structure**📁➡️📄
-**AIR QUALITY INDEX DASHBOARD**📊
-- ├─ assets/
-- │ ├─ ├─ EV Maker by Place.csv/
-- │ ├─ datasets/
-- │ ├─ ├─ ev_cat_01-24.csv/
-- │ ├─ ├─ ev_sales_by_makers_and_cat_15-24.csv/
-- │ ├─ ├─ OperationalPC.csv/
-- │ ├─ ├─ Vehicle Class - All.csv/
-- ├─ images/
-- │ ├─ analysis.ico/
-- │ ├─ Indian EV Market Logo.svg/
-- ├─ preprocessor.py/
-- ├─ charts.py/
-- ├─ main.py/
-- ├─ Indian_States.geojson/
-- ├─ requirements.txt/
-- ├─ README.md/
+**AIR QUALITY INDEX DASHBOARD**📊  
 
+├─ data/  
+│   ├─ AirQuality.csv  
+│   ├─ CleanedAirQuality.csv  
+├─ notebook/  
+│   ├─ Data_Visualization.ipynb  
+│   ├─ Data_Cleaning.ipynb  
+│   ├─ EDA_Correlations.ipynb  
+│   ├─ EDA.ipynb  
+│   ├─ Insights_and_Recommendations.ipynb  
+├─ pages/  
+│   ├─ About.py  
+│   ├─ Conclusion.py  
+│   ├─ Insights.py  
+│   ├─ Visualizations.py  
+│   ├─ main.py  
+├─ scripts/  
+│   ├─ .gitignore  
+│   ├─ Preprocessor.py  
+├─ static/  
+│   ├─ Logo.jpg  
+├─ .gitignore  
+├─ README.md  
+├─ app.py  
+├─ requirements.txt 
+  
 ## **Walkthrough of the project**▶️
 Understand the project in Short: (LINK)
 
@@ -130,14 +139,14 @@ Despite challenges such as data inconsistencies, missing values, and real-time s
 This project not only enhances your Python programming and data science skills but also contributes to raising awareness about environmental sustainability. This project is perfect for anyone passionate about using technology to drive environmental awareness and create healthier communities. 🌍✨
 
 ## **Team Members**👤🤝👥
-[@RaviVarma28] 
+**[ Ravi Kiran Venkata Sai Varma Gedela](https://github.com/RaviVarma28)** 
 
 Handling the development of the interactive user interface using *Streamlit*, ensuring the *dashboard* was responsive and *user-friendly* across devices.
 
-[@neetukm]
+**[Neetu Kumari](https://github.com/neetukm)**
 
 Performed the *Exploratory Data Analyis* for the *AQI project*. Analyzing and understanding the underlying structure of the *Air Quality Data*.
 
-[@PrinceSrivastava182]
+**[Prince Srivastava](https://github.com/PrinceSrivastava182)**
 
 Handling *Data Cleaning and Data Preprocessing* , and Created *visualizations charts* to display pollution trends, working with libraries like *Matplotlib and Seaborn*.
