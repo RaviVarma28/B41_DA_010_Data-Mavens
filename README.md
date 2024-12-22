@@ -75,10 +75,6 @@ Data Analysis using Python Libraries
 ├─ app.py  
 ├─ requirements.txt 
   
-## **Walkthrough of the project**▶️
-Understand the project in Short: (LINK)
-
-
 ## **Data Analysis**📑💻
 
 **1. Data Cleaning:**
