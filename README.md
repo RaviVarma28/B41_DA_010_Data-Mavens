@@ -130,14 +130,14 @@ Despite challenges such as data inconsistencies, missing values, and real-time s
 This project not only enhances your Python programming and data science skills but also contributes to raising awareness about environmental sustainability. This project is perfect for anyone passionate about using technology to drive environmental awareness and create healthier communities. 🌍✨
 
 ## **Team Members**👤🤝👥
-[@RaviVarma28] 
+**[ Ravi Kiran Venkata Sai Varma Gedela](https://github.com/RaviVarma28)** 
 
 Handling the development of the interactive user interface using *Streamlit*, ensuring the *dashboard* was responsive and *user-friendly* across devices.
 
-[@neetukm]
+**[Neetu Kumari](https://github.com/neetukm)**
 
 Performed the *Exploratory Data Analyis* for the *AQI project*. Analyzing and understanding the underlying structure of the *Air Quality Data*.
 
-[@PrinceSrivastava182]
+**[Prince Srivastava](https://github.com/PrinceSrivastava182)**
 
 Handling *Data Cleaning and Data Preprocessing* , and Created *visualizations charts* to display pollution trends, working with libraries like *Matplotlib and Seaborn*.
