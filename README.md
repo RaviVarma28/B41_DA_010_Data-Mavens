@@ -76,7 +76,7 @@ Data Analysis using Python Libraries
 ## **Walkthrough of the project**▶️
 Understand the project in Short: (LINK)
 
-## **Data Scrapping**💾🧹
+## **Data Analysis**📑💻
 **1. Data Cleaning:**
 This code cleans and preprocesses air quality data by removing unnecessary columns, converting specific columns to appropriate numeric formats, handling missing values, and ensuring correct date and time formats. The cleaned data is then saved to a new CSV file, CleanedAirQuality.csv.
 
