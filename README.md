@@ -46,24 +46,33 @@ Data Analysis using Python Libraries
 **AIR QUALITY INDEX(AQI)**: (LINK)
 
 ## **Directory Structure**📁➡️📄
-**AIR QUALITY INDEX DASHBOARD**📊
-- ├─ assets/
-- │ ├─ ├─ EV Maker by Place.csv/
-- │ ├─ datasets/
-- │ ├─ ├─ ev_cat_01-24.csv/
-- │ ├─ ├─ ev_sales_by_makers_and_cat_15-24.csv/
-- │ ├─ ├─ OperationalPC.csv/
-- │ ├─ ├─ Vehicle Class - All.csv/
-- ├─ images/
-- │ ├─ analysis.ico/
-- │ ├─ Indian EV Market Logo.svg/
-- ├─ preprocessor.py/
-- ├─ charts.py/
-- ├─ main.py/
-- ├─ Indian_States.geojson/
-- ├─ requirements.txt/
-- ├─ README.md/
+**AIR QUALITY INDEX DASHBOARD**📊  
 
+├─ data/  
+│   ├─ AirQuality.csv  
+│   ├─ CleanedAirQuality.csv  
+├─ notebook/  
+│   ├─ Data_Visualization.ipynb  
+│   ├─ Data_Cleaning.ipynb  
+│   ├─ EDA_Correlations.ipynb  
+│   ├─ EDA.ipynb  
+│   ├─ Insights_and_Recommendations.ipynb  
+├─ pages/  
+│   ├─ About.py  
+│   ├─ Conclusion.py  
+│   ├─ Insights.py  
+│   ├─ Visualizations.py  
+│   ├─ main.py  
+├─ scripts/  
+│   ├─ .gitignore  
+│   ├─ Preprocessor.py  
+├─ static/  
+│   ├─ Logo.jpg  
+├─ .gitignore  
+├─ README.md  
+├─ app.py  
+├─ requirements.txt 
+  
 ## **Walkthrough of the project**▶️
 Understand the project in Short: (LINK)
 
