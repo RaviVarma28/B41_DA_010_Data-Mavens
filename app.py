@@ -11,4 +11,4 @@ pg = st.navigation([
 ])
 
 pg.run()
-st.sidebar.image("static/output-onlinepngtools (1).png")
+st.sidebar.image("static/Logo.png")
