@@ -3,7 +3,7 @@ import sys
 sys.path.append('..\scripts')
 import Preprocessor
 
-st.logo("static/Logo.jpg")
+st.logo("static/Logo.png")
 
 
 st.title(':material/stacked_bar_chart: Insights Dashboard',help='This is for insights')

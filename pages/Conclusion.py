@@ -1,38 +1,24 @@
 import streamlit as st
 
-st.logo("static/Logo.jpg")
+st.logo("static/Logo.png")
 
 st.title(':material/check: Conclusion')
-st.markdown("""
-    1. **Peak Pollution Periods:**
-        - **Worst Pollution Days:** 
-          By analyzing the "Worst Pollution Days" table, we can see the specific dates when each pollutant reached its highest levels. These dates may correspond to specific events or periods of the year, such as holidays, traffic congestions, or industrial emissions. 
-          For example, if `NO2(GT)` and `CO(GT)` levels spike during peak hours, this suggests that vehicle emissions could be a major factor contributing to poor air quality.
+st.markdown("""This project has successfully demonstrated the use of Streamlit and Python for visualizing and analyzing air quality data. The UCI Machine Learning Repository’s dataset has provided valuable insights into the relationships between sensor responses and pollutant concentrations. Through interactive scatter plots and real-time filtering, users have been able to explore correlations and trends in air quality data.
 
-    2. **Daily Average Pollution Trends:**
-        - **Pollution Trends:** 
-          The daily average pollution trends help us identify seasonal variations in air quality. Pollutants such as `CO(GT)` and `NOx(GT)` are more likely to peak during periods of heavy traffic, while others like `NMHC(GT)` may correlate more closely with industrial emissions. This information is valuable for understanding how pollution levels fluctuate over time and tailoring interventions accordingly.
+### Key takeaways include:
 
-    3. **Hourly Pollution Trends:**
-        - **Hourly Peaks:** 
-          Pollution spikes in the early morning and late evening hours, when traffic congestion is at its highest. For example, pollution from `CO(GT)` and `NOx(GT)` might peak during rush hours. Targeting interventions during these specific times can help reduce exposure to harmful pollutants.
-        - **Worst Hours for Each Pollutant:** 
-          By identifying the specific hours when each pollutant is at its peak, we can make targeted recommendations, such as traffic restrictions or public health warnings for vulnerable populations.
-
-    4. **Sensor-Pollutant Correlation:**
-        - **Sensor Accuracy and Pollutant Relation:** 
-          Correlation analysis between sensors and pollutants reveals the accuracy of the sensor measurements. High correlation indicates that the sensor is reliably tracking the pollutants, while a low correlation might signal the need for sensor recalibration. For instance, if `PT08.S1(CO)` has a strong correlation with `CO(GT)`, it confirms that this sensor is accurately detecting carbon monoxide levels.
-        - **Sensor Calibration:** 
-          Sensors that show weak correlations should be calibrated or adjusted to improve their accuracy in pollutant detection.
-
-    5. **Correlation Insights:**
-        - **Pollutant Interrelationships:** 
-          Some pollutants, such as `NOx(GT)` and `NO2(GT)`, may be produced by similar sources like combustion engines, and their high correlation suggests that strategies to reduce one will likely reduce the other as well.
-        - **Air Quality Index (AQI) Relevance:** 
-          The correlation between sensors and pollutants provides valuable insights into how reliable the AQI is for forecasting air quality. If multiple pollutants show high correlation with sensors, it suggests the AQI is accurate and can be used effectively in real-time monitoring.""")
+- **Data Exploration**:   
+            The interactive visualizations have highlighted the various correlations between sensors and pollutant concentrations. Notably, while one pollutant shows a negative correlation with its sensor, the other three exhibit positive correlations.
+- **Data Preprocessing**:   
+            The approach of replacing missing values with calculated medians has ensured that only valid data points were considered in the analysis.
+- **User-Friendly Interface**:  
+            The Streamlit dashboard offers an intuitive, engaging platform for exploring and interpreting the data.
+This web application provides an effective way to monitor and analyze air quality, offering insights into pollutant behavior and sensor performance.""")
 
 st.write("""
-    ### RECOMMENDATIONS:
+    ## RECOMMENDATIONS:
+         
+    Based on the findings of this project, the following actions could help improve air quality in urban environments:
 
     **1. Implement Traffic Restrictions:**
     
