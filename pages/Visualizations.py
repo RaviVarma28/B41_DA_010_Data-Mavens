@@ -3,7 +3,7 @@ import sys
 sys.path.append('..\scripts')
 import Preprocessor
 
-st.logo("static/Logo.jpg")
+st.logo("static/Logo.png")
 
 st.title(":material/data_exploration: Visualization Dashboard")
 

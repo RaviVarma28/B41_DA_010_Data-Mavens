@@ -9,5 +9,6 @@ pg = st.navigation([
     st.Page('pages/Conclusion.py', title='Conclusion', icon=':material/check:'),
     st.Page('pages/About.py', title='About', icon=':material/quiz:')
 ])
-st.sidebar.image('static/Logo.jpg')
+
 pg.run()
+st.sidebar.image("static/Logo.png")

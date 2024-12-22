@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.logo("static/Logo.jpg")
+st.logo("static/Logo.png")
 
 st.title(':material/quiz: About')
 
@@ -17,7 +17,7 @@ The dataset used in this project originates from the UCI Machine Learning Reposi
 - Total Nitrogen Oxides (NOx)
 - Nitrogen Dioxide (NO2)
 
-The dataset also includes responses from 5 metal oxide chemical sensors embedded in the multisensor device. Missing values are denoted by -200.
+The dataset also includes responses from 4 metal oxide chemical sensors embedded in the multisensor device. Missing values are denoted by -200.
 
 ### Key Features
 1. Interactive Visualizations:
@@ -57,7 +57,6 @@ The dataset also includes responses from 5 metal oxide chemical sensors embedded
 - Create a user-friendly interface for visualizing air quality data.
 - Future Enhancements
 - Add time-series visualizations to observe trends over the recorded year.
-- Extend analysis to cover the effects of sensor drift and cross-sensitivity.
-- Integrate predictive models for estimating pollutant levels based on sensor data."""
+- Extend analysis to cover the effects of sensor drift and cross-sensitivity."""
 
 st.markdown(subject)
