@@ -1,18 +1,17 @@
 import streamlit as st
-import pandas as pd
 import sys
 sys.path.append('scripts')
 import Preprocessor
 import numpy as np
 
 
-st.logo("static/Logo.jpg")
+st.logo("static/Logo.jpg",size='large')
 
 
 col1, col2= st.columns([1,8])
 
 with col1:
-    st.image("static/Logo.jpg", width=120)
+    st.image("static/Logo.jpg", width=200)
 
 with col2:
     st.markdown("# Air Quality Index")

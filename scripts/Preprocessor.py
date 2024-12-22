@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import plotly.express as px
+import numpy as np
 
 # Load the dataset
 df = pd.read_csv('data/CleanedAirQuality.csv')
@@ -15,6 +14,22 @@ sensor_cols = ['PT08.S1(CO)', 'PT08.S3(NOx)',  'PT08.S4(NO2)', 'PT08.S2(NMHC)']
 pollutant_cols = ['CO(GT)', 'NOx(GT)', 'NO2(GT)', 'NMHC(GT)']
 weather_cols = ['T', 'RH', 'AH']
 
+def spikes(data,column):
+
+    data = data.copy()
+    
+    # Calculate IQR
+    q1 = np.quantile(data[column], 0.25)
+    q3 = np.quantile(data[column], 0.75)
+    iqr = q3 - q1
+    
+    # Determine upper bound
+    ub = q3 + 1.5 * iqr
+    
+    # Identify and return rows with spikes
+    spike_mask = data[column] > ub
+    return data[spike_mask]
+
 def scatter(pollutant):
     
     # Select corresponding sensor (Elements in lists are already in place)
@@ -25,11 +40,14 @@ def scatter(pollutant):
     temp_df = df[(df[pollutant] > -200) & (df[sensor] > -200)].copy()
     temp_df = temp_df[[sensor, pollutant]].dropna()  # Drop rows with NaN
 
+    temp_df['Outlier'] = temp_df.index.isin(spikes(temp_df,pollutant).index)
+
     # Create Plotly scatter plot
     fig = px.scatter(
         temp_df,
         x=sensor,
         y=pollutant,
+        color='Outlier',
         title=f"{sensor} vs. {pollutant}",
         labels={sensor: f"{sensor} Reading", pollutant: f"{pollutant} Level"},
         opacity=0.6,
@@ -44,6 +62,18 @@ def correlation_matrix():
     # Filtering the data, so that only numbers above -200 remain
     # In the data provided, it is stated that missing values are given a default value of -200
     correlation_data = correlation_data[(correlation_data[correlation_data.columns]>-200).all(axis=1)]
+    
+    bounds = {}
+    for col in correlation_data.columns:
+        q1 = np.quantile(correlation_data[col], 0.25)
+        q3 = np.quantile(correlation_data[col], 0.75)
+        iqr = q3 - q1
+        bounds[col] = (q1 - 1.5 * iqr, q3 + 1.5 * iqr)
+
+# Apply bounds in a single step
+    for col, (lb, ub) in bounds.items():
+        correlation_data = correlation_data[(correlation_data[col] >= lb) & (correlation_data[col] <= ub)]
+    
     correlation_matrix = correlation_data.corr()
 
     # Taking sensor_cols as rows
@@ -77,7 +107,7 @@ def corr():
 def multiselect(title, options_list):
     
     # creating a popover
-    with st.popover(title):
+    with st.popover(title, use_container_width=True):
         
         # creating a select all option
         select_all = st.checkbox("Select all", value=False, key=title+'_checkbox')
@@ -108,19 +138,24 @@ def hourly(pollutants):
 
     # Hourly pollution trends
     hourly_pollution = temp_df.groupby('Hour')[pollutants].mean()
-    st.line_chart(hourly_pollution, x_label='Hour', y_label='Pollutant Concentration')
+    fig = px.line(
+        hourly_pollution,
+        labels={'variable':'Polution','value': 'Pollutant Concentration'}
+        )
+    st.plotly_chart(fig)
 
-def daily(pollutants):
+def daily(pollutants,month):
 
     # bye bye -200 values
     temp_df=df[(df[pollutants]>-200).all(axis=1)]
     temp_df['Date']=pd.to_datetime(temp_df['Date'])
+    temp_df['Month'] = temp_df['Date'].dt.month_name()
     
     temp_df['Day'] = temp_df['Date'].dt.day_name() # Creating a new column for Name of the Day
     
     # Daily Poollution Trend
-    daily_pollution = temp_df.groupby('Day')[pollutants].mean()
-
+    daily_pollution = temp_df[temp_df['Month']==month].groupby('Day')[pollutants].mean()
+    
     # rearraging the index into proper order
     daily_pollution = daily_pollution.reindex(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
     fig = px.line(
@@ -157,7 +192,6 @@ def bar(pollutants):
     # bar chart for Pollution on Weekdays and Weekends
     fig = px.bar(
         temp_df.groupby("Day Type")[pollutants].mean(),
-        title="Pollution on Weekdays and Weekends",
         labels={'value':'Pollutant Concentration','variable':'Pollutants'},
         barmode='group'
     )
@@ -169,7 +203,6 @@ def avg_bar(pollutants):
     temp_df=df[(df[pollutants]>-200).all(axis=1)]
     fig = px.bar(
         temp_df[pollutants].mean(),
-        title="Pollution on Weekdays and Weekends",
         labels={'value':'Average Pollutant Concentration','index':'Pollutants'},
         barmode='group'
     )
@@ -182,5 +215,15 @@ def histogram(pollutant):
         temp_df[pollutant],
         title=f'Histogram for {pollutant}',
         labels={'count':'Frequency','value':f'{pollutant}'}
+    )
+    st.plotly_chart(fig)
+
+def box(pollutant):
+
+    temp_df = df[df[pollutant]>-200]
+    fig = px.box(
+        temp_df[pollutant],
+        title=f"{pollutant}",
+        labels={'variable':'Pollutant','value':'Pollutant Concentration'},
     )
     st.plotly_chart(fig)
